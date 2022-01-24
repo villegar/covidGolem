@@ -1,4 +1,4 @@
-library(tidyr)
+# library(tidyr)
 #' prepare_data 
 #'
 #' @description Prepare covid data 
@@ -32,7 +32,7 @@ covid_rates <- function(covid_data, population){
   dates <- as.data.frame(lubridate::as_date(earliest:latest))
   dates <- dates %>%
     dplyr::rename(date = `lubridate::as_date(earliest:latest)`)
-  date_matrix <- crossing(population, dates)
+  date_matrix <- tidyr::crossing(population, dates)
   covid_matrix <- dplyr::left_join(
     date_matrix, 
     covid_data,
@@ -75,7 +75,7 @@ us_rates <- function(state_covid, us_population){
   dates <- as.data.frame(lubridate::as_date(earliest:latest))
   dates <- dates %>%
     dplyr::rename(date = `lubridate::as_date(earliest:latest)`)
-  date_matrix <- crossing(us_population, dates)
+  date_matrix <- tidyr::crossing(us_population, dates)
   us_covid <- state_covid %>%
     dplyr::group_by(date) %>%
     dplyr::summarise(
@@ -166,7 +166,7 @@ cumulative_us <- function(state_covid, us_pop) {
       cases = sum(cases), 
       deaths = sum(deaths)
     )
-  covid_matrix <- crossing(covid, us_pop)
+  covid_matrix <- tidyr::crossing(covid, us_pop)
   covid_matrix$caseRate <- round(
     covid_matrix$cases / covid_matrix$population * 100000, 
     2
@@ -251,7 +251,7 @@ sir_counties <- function(cumu_county, cumu_state){
 sir_states <- function(cumu_state, cumu_us){
   cumu_us <- cumu_us %>%
     dplyr::select(caseRate, deathRate)
-  sir_df <- crossing(cumu_state, cumu_us)
+  sir_df <- tidyr::crossing(cumu_state, cumu_us)
   sir_df <- tidyr::drop_na(sir_df)
   a = 0.05 
   m = length(cumu_state$cases)
