@@ -16,6 +16,7 @@ Imports:
     htmltools,
     imputeTS,
     lubridate,
+    magrittr,
     plotly,
     processx,
     purrr,
