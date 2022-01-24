@@ -17,6 +17,7 @@ Imports:
     imputeTS,
     lubridate,
     magrittr,
+    pkgload,
     plotly,
     processx,
     purrr,
