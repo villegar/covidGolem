@@ -27,6 +27,9 @@ usethis::use_package( "golem" )
 usethis::use_package( "tidyr" )
 usethis::use_package( "purrr" )
 usethis::use_package( "imputeTS" )
+usethis::use_package("RcppRoll")
+usethis::use_package("shinyalert")
+usethis::use_package("forecast")
 
 ## Add modules ----
 ## Create a module infrastructure in R/
@@ -35,6 +38,7 @@ golem::add_module( name = "states" )
 golem::add_module( name = "counties" )
 golem::add_module( name = "methodology" )# Name of the module
 golem::add_module( name = "vaccinations" )
+golem::add_module( name = "predict" )
 
 
 
@@ -42,6 +46,7 @@ golem::add_fct( "get_data" )
 golem::add_fct( "maps" ) 
 golem::add_fct( "time_series_plots" )
 golem::add_fct( "sir_plots" )
+golem::add_fct( "prediction" )
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*

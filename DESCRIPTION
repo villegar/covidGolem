@@ -21,7 +21,9 @@ Imports:
     plotly,
     processx,
     purrr,
+    RcppRoll,
     shiny (>= 1.7.1),
+    shinyalert,
     thinkr,
     tidyr
 Remotes: github::AnalytixWare/ShinySky
