@@ -17,16 +17,19 @@ Imports:
     imputeTS,
     lubridate,
     magrittr,
+    maps,
     pkgload,
     plotly,
     processx,
     purrr,
     RcppRoll,
+    rsconnect,
     shiny (>= 1.7.1),
     shinyalert,
+    shinysky,
     thinkr,
     tidyr
-Remotes: github::AnalytixWare/ShinySky
+Remotes: github::AnalytixWare/shinysky
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
