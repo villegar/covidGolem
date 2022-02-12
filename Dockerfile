@@ -8,4 +8,4 @@ RUN git checkout group_development
 WORKDIR covidGolem
 RUN R -e 'remotes::install_local(upgrade="never")'
 EXPOSE 3838
-CMD R -e "options('shiny.port'=3838, shiny.host='0.0.0.0');covidGolem::run_app()"
+CMD R -e "options('golem.app.prod'=TRUE, 'shiny.port'=3838, shiny.host='0.0.0.0');covidGolem::run_app()"
