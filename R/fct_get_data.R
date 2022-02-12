@@ -15,8 +15,8 @@ NULL
 #'
 
 get_my_data <- function() {
-  covid_counties_original <- temp_county
-  covid_states_original <- temp_states
+  covid_counties_original <- covidGolem::temp_county
+  covid_states_original <- covidGolem::temp_states
   covid_states_original <- covid_states_original %>%
     dplyr::filter(
       state != 'American Samoa' & 
@@ -31,23 +31,23 @@ get_my_data <- function() {
   # )
   cumulative_US <- cumulative_us(
     covid_states_original, 
-    us_population
+    covidGolem::us_population
   )
   covid_counties <- covid_rates(
     covid_counties_original,
-    county_population
+    covidGolem::county_population
   )
   cumulative_counties <- cumulative_county(
     covid_counties_original, 
-    county_population
+    covidGolem::county_population
   )
   covid_states <- covid_rates(
     covid_states_original, 
-    state_population
+    covidGolem::state_population
   )
   cumulative_states <- cumulative_state(
     covid_states_original, 
-    state_population
+    covidGolem::state_population
   )
   sir_counties <- sir_counties(
     cumulative_counties, 
