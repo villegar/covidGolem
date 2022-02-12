@@ -57,8 +57,8 @@ get_my_data <- function() {
     cumulative_states,
     cumulative_US
   )
-  state_vaccinations <- vaccinations[-c(1), ]
-  us_vaccinations <- vaccinations[1, ]
+  state_vaccinations <- covidGolem::vaccinations[-c(1), ]
+  us_vaccinations <- covidGolem::vaccinations[1, ]
   return(
     list(
       cumulative_US = cumulative_US, 
