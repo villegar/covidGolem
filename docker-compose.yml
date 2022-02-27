@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  covidGolem:
+    build: .
+  nginx:
+    image: nginx:latest
+    volumes:
+      - inst/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - covidGolem
+    ports:
+      - 80:3838
